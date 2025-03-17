@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Bienvenido a la página de inicio</h1>
+
+</head>
+<body>
+    <div class="registro-container">
+        <h2>Registrarse</h2>
+        <form id="registroForm">
+            <fieldset>
+                <div class="input-group">
+                    <input type="text" id="username" placeholder="Nombre de usuario" required>
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="input-group">
+                    <input type="email" id="email" placeholder="Correo electrónico" required>
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="password" placeholder="Contraseña" required>
+                    <i class="fas fa-lock"></i>
+                </div>
+                <button type="submit">Registrarse</button>
+            </fieldset>
+        </form>
+        <div id="error-message"></div>
+    </div>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script> <!-- Enlace a Font Awesome -->
+    <script src="index.js"></script> <!-- Enlace a tu archivo JavaScript -->
+    {%endblock%}
+</body>
+</html>
+        
+                

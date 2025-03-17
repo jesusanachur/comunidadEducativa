@@ -1,0 +1,47 @@
+
+    {% extends "base.html" %}
+    {% block title %} planes{% endblock  %} 
+    
+    {% block content %}
+
+    <section class="planes-container">
+        <h2>Nuestros Planes</h2>
+        <div class="planes">
+            <div class="plan">
+                <h3>Plan Básico</h3>
+                <p>Acceso a cursos básicos y recursos limitados.</p>
+                <ul>
+                    <li>Acceso a 10 cursos</li>
+                    <li>Recursos descargables</li>
+                    <li>Soporte por correo</li>
+                </ul>
+                <button>Seleccionar</button>
+            </div>
+            <div class="plan destacado">
+                <h3>Plan Intermedio</h3>
+                <p>Acceso a cursos intermedios y recursos adicionales.</p>
+                <ul>
+                    <li>Acceso a 50 cursos</li>
+                    <li>Recursos descargables</li>
+                    <li>Soporte por chat</li>
+                    <li>Certificados de finalización</li>
+                </ul>
+                <button>Seleccionar</button>
+            </div>
+            <div class="plan">
+                <h3>Plan Avanzado</h3>
+                <p>Acceso a todos los cursos y recursos premium.</p>
+                <ul>
+                    <li>Acceso ilimitado a todos los cursos</li>
+                    <li>Recursos descargables</li>
+                    <li>Soporte prioritario</li>
+                    <li>Certificados de finalización</li>
+                    <li>Acceso a webinars exclusivos</li>
+                </ul>
+                <button>Seleccionar</button>
+            </div>
+        </div>
+    </section>
+    {% endblock content %}
+</body>
+</html>

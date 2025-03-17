@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'planes.css' %}">
+    <link rel="stylesheet" href="{% static 'registro.css' %}">
+    
+
+    {% load static %}
+
+</head>
+{% block content %}
+<body>
+    
+    <header class="header">
+        <div class="menu continuar">
+            <!-- Asegúrate de que la ruta del logo sea correcta -->
+            <img src="{% static 'logo.jpg' %}" alt="Comunidad Educativa" class="logo">
+            <nav class="navbar">
+                <ul>
+                    <li><a href="{% url 'registro' %}">Registrarte</a></li>
+                    <li><a href="{% url 'inicio' %}">Inicio</a></li>
+                    <li><a href="https://wa.me/3112445775">Contacto</a></li>
+                    <li><a href="{% url 'planes' %}">Planes</a></li>
+                   
+                </ul>
+            </nav>
+        </div>
+        <div class="header_content container">
+            <p>Bienvenido a Español Fácil, tu plataforma ideal para aprender español de manera efectiva y divertida. Aquí encontrarás recursos interactivos, lecciones personalizadas y mucho más.</p>
+        </div>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Buscar...">
+            <button onclick="buscar()">Buscar</button>
+        </div>
+        <div id="resultados"></div>
+    </header>
+
+    <!-- Bloque de contenido dinámico -->
+    
+   
+
+    <script>
+        function buscar() {
+            // Lógica para realizar la búsqueda
+            const searchTerm = document.getElementById('searchInput').value;
+            const resultados = document.getElementById('resultados');
+            resultados.innerHTML = `<p>Resultados para: ${searchTerm}</p>`;
+        }
+    </script>
+   
+{% endblock %}
+{% block footer %}
+<footer class="footer">
+        <hr>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h2>Sobre Nosotros</h2>
+                <div class="text">Somos un grupo de soñadores, viajeros y amantes de los idiomas que creemos en un mundo donde las palabras no sean barreras, sino puentes. Nos apasiona ayudar a las personas a descubrir nuevas culturas, hacer amigos en todo el mundo y alcanzar sus metas, ya sea para viajar, trabajar o simplemente disfrutar de una buena conversación en otro idioma.</div>
+            </div>
+            
+            <div class="footer-column">
+                <h2>Enlaces Rápidos</h2>
+                <ul class="inf">
+                    <li><a href="">home</a></li>
+                    <li><a href="planes">Nuestros Planes</a></li>
+                    <li><a href="Registro">Registro</a></li>
+                    <li><a href="inicio">Iniciar Sesión</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h2>Contacto</h2>
+                <div class="text">Email: anachurycastro2001@gmail.com</div>
+                <div class="text">Teléfono: +57 3112445775</div>
+            </div>
+        </div>
+
+        <hr>
+        <div class="final">
+            <p>&copy; 2024 A.</p>
+        </div>
+    </footer>
+
+{% endblock %}
+
+</body>
+</html>

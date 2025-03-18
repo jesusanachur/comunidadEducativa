@@ -1,16 +1,17 @@
 
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %} {% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'style.css' %}">
-    <link rel="stylesheet" href="{% static 'planes.css' %}">
-    <link rel="stylesheet" href="{% static 'registro.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/planes.css' %}">
+    <link rel="stylesheet" href="{% static 'css/registro.css' %}">
     
 
-    {% load static %}
+ 
 
 </head>
 {% block content %}
@@ -22,7 +23,7 @@
             <img src="{% static 'logo.jpg' %}" alt="Comunidad Educativa" class="logo">
             <nav class="navbar">
                 <ul>
-                    <li><a href="{% url 'registro' %}">Registrarte</a></li>
+                    <li><a href="{% url 'registro' %}" tarj>Registrarte</a></li>
                     <li><a href="{% url 'inicio' %}">Inicio</a></li>
                     <li><a href="https://wa.me/3112445775">Contacto</a></li>
                     <li><a href="{% url 'planes' %}">Planes</a></li>

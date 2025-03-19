@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Español Fácil</title>
-    <link rel="stylesheet" href="informacion.css"> <!-- Asegúrate de tener un archivo CSS para estilos -->
-</head>
-<body>
+{% extends "base.html" %}
+{%load static%}
+{% block content %}
 
 <section class="informacion_1">
     <h2>Información Adicional</h2>
@@ -29,14 +23,8 @@
 <section class="testimonios">
     <h3>Testimonios</h3>
     <div class="testimonio_item">
-        <img src="textimonio.png" alt="Testimonio de estudiante">
+        <img src="{% static 'textimonio.png' %}" alt="Testimonio de estudiante">
         <h4>"Gracias a Español Fácil, he mejorado significativamente mi español. ¡Recomiendo esta plataforma a todos!" - Estudiante Satisfecho</h4>
     </div>
 </section>
 
-<footer class="footer">
-    <p>&copy; 2024 Español Fácil. Todos los derechos reservados.</p>
-</footer>
-
-</body>
-</html>

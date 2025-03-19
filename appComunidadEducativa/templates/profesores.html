@@ -1,43 +1,38 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="regitrodepresores.css"> 
-    <title>Registro</title>
-</head>
-<body>
+{% extends "base.html" %}
+{%load static%}
+{% block content %}
+
     <div class="registro-container">
-        <form action="registro-form" method="post">
+        <form action="{% url 'registro-form' %}" method="post">
+            {% csrf_token %}
             <fieldset>
-                <h2>Registro</h2><br>
-                <div class="input-group">
-                    <input type="text" name="nombre" placeholder="Nombre" required>
-                </div>
-                <div class="input-group">
-                    <input type="text" name="apellido" placeholder="Apellido" required>
-                </div>
-                <div class="input-group">
-                    <input type="email" name="correo" placeholder="Correo Electrónico" required>
-                </div>
-                <div class="input-group">
-                    <input type="tel" name="contacto" placeholder="Número de Contacto" required>
-                </div>
-                <div class="input-group">
-                    <input type="number" name="cedula" placeholder="Número de Cédula" required>
-                </div>
-                <div class="input-group">
-                    <input type="date" name="fecha_nacimiento" placeholder="Fecha de Nacimiento" required>
-                </div>
-                <div class="input-group">
-                    <input type="text" name="direccion" placeholder="Dirección" required>
-                </div>
-                <div class="input-group">
-                    <input type="password" name="password" placeholder="Contraseña" required>
-                </div>
-                <button type="submit">Registrar</button>
+            <h2>Registro</h2><br>
+            <div class="input-group">
+                <input type="text" name="nombre" placeholder="Nombre" required>
+            </div>
+            <div class="input-group">
+                <input type="text" name="apellido" placeholder="Apellido" required>
+            </div>
+            <div class="input-group">
+                <input type="email" name="correo" placeholder="Correo Electrónico" required>
+            </div>
+            <div class="input-group">
+                <input type="tel" name="contacto" placeholder="Número de Contacto" required>
+            </div>
+            <div class="input-group">
+                <input type="number" name="cedula" placeholder="Número de Cédula" required>
+            </div>
+            <div class="input-group">
+                <input type="date" name="fecha_nacimiento" placeholder="Fecha de Nacimiento" required>
+            </div>
+            <div class="input-group">
+                <input type="text" name="direccion" placeholder="Dirección" required>
+            </div>
+            <div class="input-group">
+                <input type="password" name="password" placeholder="Contraseña" required>
+            </div>
+            <button type="submit">Registrar</button>
             </fieldset>
         </form>
     </div>
-</body>
-</html>
+

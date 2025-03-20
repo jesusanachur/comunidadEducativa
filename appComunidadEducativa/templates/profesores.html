@@ -1,12 +1,18 @@
 {% extends "base.html" %}
-{%load static%}
-{% block content %}
+{% load static %}
 
-    <div class="registro-container">
-        <form action="{% url 'registro-form' %}" method="post">
-            {% csrf_token %}
-            <fieldset>
-            <h2>Registro</h2><br>
+{% block title %}Registro de Profesores - Comunidad Educativa{% endblock %}
+
+{% block extrahead %}
+<link rel="stylesheet" href="{% static 'css/regitrodepresores.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="registro-container">
+    <form action="{% url 'profesores' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <fieldset>
+            <h2>Registro de Profesores</h2><br>
             <div class="input-group">
                 <input type="text" name="nombre" placeholder="Nombre" required>
             </div>
@@ -20,7 +26,7 @@
                 <input type="tel" name="contacto" placeholder="Número de Contacto" required>
             </div>
             <div class="input-group">
-                <input type="number" name="cedula" placeholder="Número de Cédula" required>
+                <input type="text" name="cedula" placeholder="Número de Cédula" required>
             </div>
             <div class="input-group">
                 <input type="date" name="fecha_nacimiento" placeholder="Fecha de Nacimiento" required>
@@ -29,10 +35,30 @@
                 <input type="text" name="direccion" placeholder="Dirección" required>
             </div>
             <div class="input-group">
-                <input type="password" name="password" placeholder="Contraseña" required>
+                <input type="password" name="contraseña" placeholder="Contraseña" required>
+            </div>
+            <div class="input-group">
+                <input type="password" name="confirm_password" placeholder="Confirmar Contraseña" required>
+            </div>
+            <div class="input-group">
+                <input type="text" name="especialidad" placeholder="Especialidad (opcional)">
+            </div>
+            <div class="input-group">
+                <textarea name="biografia" placeholder="Biografía (opcional)" rows="4"></textarea>
+            </div>
+            <div class="input-group">
+                <label for="foto">Foto de perfil (opcional):</label>
+                <input type="file" name="foto" id="foto">
             </div>
             <button type="submit">Registrar</button>
-            </fieldset>
-        </form>
+        </fieldset>
+    </form>
+    <div id="error-message">
+        {% if messages %}
+            {% for message in messages %}
+                <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+            {% endfor %}
+        {% endif %}
     </div>
-
+</div>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Iniciar Sesión - Comunidad Educativa{% endblock %}
+
+{% block extrahead %}
+<link rel="stylesheet" href="{% static 'css/inicioSesion.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="login-container">
+    <h2>Iniciar Sesión</h2>
+    <form id="loginForm" method="POST" action="{% url 'inicioSesion' %}">
+        {% csrf_token %}
+        <fieldset>
+            <div class="input-group">
+                <input type="text" id="username" name="username" placeholder="Nombre de usuario o correo electrónico" required>
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="input-group">
+                <input type="password" id="password" name="password" placeholder="Contraseña" required>
+                <i class="fas fa-lock"></i>
+            </div>
+            <div class="input-group">
+                <label>
+                    <input type="checkbox" id="remember_me" name="remember_me"> Recordarme
+                </label>
+            </div>
+            <button type="submit">Iniciar Sesión</button>
+        </fieldset>
+    </form>
+    <div id="error-message">
+        {% if messages %}
+            {% for message in messages %}
+                <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+    </div>
+    <div class="links">
+        <a href="{% url 'registro' %}">¿No tienes una cuenta? Regístrate</a>
+        <a href="{% url 'recuperar_contrasena' %}">¿Olvidaste tu contraseña?</a>
+    </div>
+</div>
+
+<!-- Enlace a tu archivo JavaScript -->
+<script src="{% static 'js/index.js' %}"></script>
+{% endblock %}

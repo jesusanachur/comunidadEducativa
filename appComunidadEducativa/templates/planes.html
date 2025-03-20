@@ -1,5 +1,9 @@
 {% extends "base.html" %}
+
 {%load static%}
+{% block extrahead %}
+<link rel="stylesheet" href="{% static 'css/planes.css' %}">
+{% endblock %}
 {% block content %}
 
     <section class="planes-container">
@@ -40,5 +44,5 @@
             </div>
         </div>
     </section>
-    {% endblock content %}
+{% endblock content %}
 

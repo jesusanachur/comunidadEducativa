@@ -1,28 +1,71 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %}Registro - Como munidad Educativa {% endblock %}
+{% block title %}Registro - Comunidad Educativa{% endblock %}
+
+{% block extrahead %}
+<link rel="stylesheet" href="{% static 'css/regitro.css' %}">
+{% endblock %}
 
 {% block content %}
 <div class="registro-container">
     <h2>Registrarse</h2>
-    <form id="registroForm">
+    <form id="registroForm" method="POST" action="{% url 'registro' %}">
+        {% csrf_token %}
         <fieldset>
             <div class="input-group">
-                <input type="text" id="username" placeholder="Nombre de usuario" required>
+                <input type="text" id="nombre_completo" name="nombre_completo" placeholder="Nombre completo" required aria-label="Nombre completo">
                 <i class="fas fa-user"></i>
             </div>
             <div class="input-group">
-                <input type="email" id="email" placeholder="Correo electrónico" required>
+                <input type="text" id="nombre_usuario" name="nombre_usuario" placeholder="Nombre de usuario" required aria-label="Nombre de usuario">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="input-group">
+                <input type="email" id="email" name="email" placeholder="Correo electrónico" required aria-label="Correo electrónico">
                 <i class="fas fa-envelope"></i>
             </div>
             <div class="input-group">
-                <input type="password" id="password" placeholder="Contraseña" required>
+                <input type="password" id="contraseña" name="contraseña" placeholder="Contraseña" required aria-label="Contraseña">
                 <i class="fas fa-lock"></i>
             </div>
+            <div class="input-group">
+                <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirmar contraseña" required aria-label="Confirmar contraseña">
+                <i class="fas fa-lock"></i>
+            </div>
+            <div class="input-group">
+                <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required aria-label="Fecha de nacimiento">
+                <i class="fas fa-calendar"></i>
+            </div>
+            <div class="input-group">
+                <select id="genero" name="genero" required aria-label="Género">
+                    <option value="">Selecciona tu género</option>
+                    <option value="masculino">Masculino</option>
+                    <option value="femenino">Femenino</option>
+                    <option value="otro">Otro</option>
+                    <option value="prefiero_no_decir">Prefiero no decir</option>
+                </select>
+                <i class="fas fa-venus-mars"></i>
+            </div>
+    
             <button type="submit">Registrarse</button>
         </fieldset>
     </form>
-    <div id="error-message"></div>
+    <div id="error-message">
+        {% if form.errors %}
+            <p>Por favor corrija los errores en el formulario.</p>
+            {% for field in form %}
+                {% if field.errors %}
+                    <p>{{ field.label }}: {{ field.errors|striptags }}</p>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+        
+        {% if messages %}
+            {% for message in messages %}
+                <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+    </div>
 </div>
 {% endblock %}

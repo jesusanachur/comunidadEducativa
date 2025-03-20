@@ -1,53 +1,77 @@
-
-{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %} {% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'css/.css' %}">
+    {% load static %}
+    <title>{% block title %}Comunidad Educativa{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'css/planes.css' %}">
-    <link rel="stylesheet" href="{% static 'css/registro.css' %}">
-    <link rel="stylesheet" href="{% static 'css/regitrodeprofesores.css' %}">
-    <link rel="stylesheet" href="{% static 'css/programas.css' %}">
-    <link rel="stylesheet" href="{% static 'css/informacion.css' %}">
-    
-
- 
-
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    {% block extrahead %}{% endblock %}
 </head>
-
 <body>
-    
     <header class="header">
         <div class="menu continuar">
             <!-- Asegúrate de que la ruta del logo sea correcta -->
             <img src="{% static 'logo.jpg' %}" alt="Comunidad Educativa" class="logo">
             <nav class="navbar">
                 <ul>
-                    <li><a href="{% url 'registro' %}" tarj>Registrarte</a></li>
-                    <li><a href="{% url 'inicio Sesion' %}">Inicio Sesion</a></li>
-                    <li><a href="https://wa.me/3112445775">Contacto</a></li>
-                    <li><a href="{% url 'planes' %}">Planes</a></li>
-                   
+                    <li><a href="{% url 'home' %}"><i class="fas fa-home"></i> Inicio</a></li>
+                    <li><a href="{% url 'programas' %}"><i class="fas fa-book"></i> Programas</a></li>
+                    <li><a href="{% url 'planes' %}"><i class="fas fa-list"></i> Planes</a></li>
+                    <li><a href="{% url 'sobrenosotros' %}"><i class="fas fa-info-circle"></i> Quiénes Somos</a></li>
+                    <li><a href="{% url 'profesores' %}"><i class="fas fa-chalkboard-teacher"></i> Enseña con nosotros</a></li>
+                    <li><a href="{% url 'registro' %}"><i class="fas fa-user-plus"></i> Registrarte</a></li>
+                    <li><a href="{% url 'inicioSesion' %}"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</a></li>
                 </ul>
             </nav>
         </div>
         <div class="header_content container">
-            <p>Bienvenido a Comunidad Educativa, tu plataforma ideal para aprender  de manera efectiva y divertida. Aquí encontrarás recursos interactivos, lecciones personalizadas y mucho más.</p>
+            <p>Bienvenido a Comunidad Educativa, tu plataforma ideal para aprender español de manera efectiva y divertida. Aquí encontrarás recursos interactivos, lecciones personalizadas y mucho más.</p>
         </div>
         <div class="search-container">
-            <input type="text" id="searchInput" placeholder="Buscar...">
-            <button onclick="buscar()">Buscar</button>
+            <input type="text" id="searchInput" placeholder="Buscar cursos, lecciones, profesores...">
+            <button onclick="buscar()"><i class="fas fa-search"></i> Buscar</button>
         </div>
         <div id="resultados"></div>
     </header>
 
     <!-- Bloque de contenido dinámico -->
-    
-   
+    {% block content %}{% endblock %}
+
+    <!-- Footer común para todas las páginas -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Comunidad Educativa</h3>
+                <p>Tu plataforma para aprender español de manera efectiva y divertida.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces rápidos</h3>
+                <ul>
+                    <li><a href="{% url 'home' %}">Inicio</a></li>
+                    <li><a href="{% url 'programas' %}">Programas</a></li>
+                    <li><a href="{% url 'planes' %}">Planes</a></li>
+                    <li><a href="{% url 'sobrenosotros' %}">Quiénes Somos</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p><i class="fas fa-envelope"></i> anachurycastro2001@gmail.com</p>
+                <p><i class="fas fa-phone"></i> 57 3112445775</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Comunidad Educativa. Todos los derechos reservados.</p>
+        </div>
+    </footer>
 
     <script>
         function buscar() {
@@ -55,12 +79,19 @@
             const searchTerm = document.getElementById('searchInput').value;
             const resultados = document.getElementById('resultados');
             resultados.innerHTML = `<p>Resultados para: ${searchTerm}</p>`;
+            
+            // Mostrar u ocultar resultados
+            if (searchTerm.trim() !== '') {
+                resultados.style.display = 'block';
+            } else {
+                resultados.style.display = 'none';
+            }
         }
+        
+        // Ocultar resultados al cargar la página
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('resultados').style.display = 'none';
+        });
     </script>
-   
-{% block content %}{% endblock %}
-
-
-
 </body>
 </html>

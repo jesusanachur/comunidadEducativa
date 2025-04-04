@@ -1,38 +1,146 @@
-{% extends "base.html" %}
-{%load static%}
-{% block content %}
 
-    <div class="registro-container">
-        <form action="{% url 'registro-form' %}" method="post">
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Registro Docente - Comunidad Educativa{% endblock %}
+
+{% block extrahead %}
+<link rel="stylesheet" href="{% static 'css/registro-docente.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+{% endblock %}
+
+{% block content %}
+<div class="docente-registro-container">
+    <div class="docente-registro-card">
+        <div class="registro-header">
+            <img src="{% static 'images/teacher-icon.png' %}" alt="Icono docente" class="docente-icon">
+            <h1>Registro para Docentes</h1>
+            <p>Complete sus datos para unirse a nuestra plataforma educativa</p>
+        </div>
+
+        <form id="registroDocenteForm" method="POST" action="{% url 'registro_docente' %}" class="docente-form" enctype="multipart/form-data">
             {% csrf_token %}
-            <fieldset>
-            <h2>Registro</h2><br>
-            <div class="input-group">
-                <input type="text" name="nombre" placeholder="Nombre" required>
+            
+            <div class="form-section">
+                <h2><i class="fas fa-user-tie"></i> Información Personal</h2>
+                
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="nombre_completo"><i class="fas fa-user"></i> Nombre Completo*</label>
+                        <input type="text" id="nombre_completo" name="nombre_completo" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="cedula"><i class="fas fa-id-card"></i> Cédula Profesional*</label>
+                        <input type="text" id="cedula" name="cedula" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="fecha_nacimiento"><i class="fas fa-birthday-cake"></i> Fecha de Nacimiento*</label>
+                        <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="genero"><i class="fas fa-venus-mars"></i> Género*</label>
+                        <select id="genero" name="genero" required>
+                            <option value="">Seleccione...</option>
+                            <option value="masculino">Masculino</option>
+                            <option value="femenino">Femenino</option>
+                            <option value="otro">Otro</option>
+                            <option value="prefiero_no_decir">Prefiero no decir</option>
+                        </select>
+                    </div>
+                </div>
             </div>
-            <div class="input-group">
-                <input type="text" name="apellido" placeholder="Apellido" required>
+
+            <div class="form-section">
+                <h2><i class="fas fa-school"></i> Información Profesional</h2>
+                
+                <div class="input-group">
+                    <label for="institucion"><i class="fas fa-university"></i> Institución Educativa*</label>
+                    <input type="text" id="institucion" name="institucion" required>
+                </div>
+                
+                <div class="form-row">
+                    <div class="input-group">
+                        <label for="nivel_educativo"><i class="fas fa-graduation-cap"></i> Nivel Educativo*</label>
+                        <select id="nivel_educativo" name="nivel_educativo" required>
+                            <option value="">Seleccione...</option>
+                            <option value="preescolar">Preescolar</option>
+                            <option value="primaria">Primaria</option>
+                            <option value="secundaria">Secundaria</option>
+                            <option value="bachillerato">Bachillerato</option>
+                            <option value="universidad">Universidad</option>
+                        </select>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="especialidad"><i class="fas fa-atom"></i> Especialidad*</label>
+                        <input type="text" id="especialidad" name="especialidad" required>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="materias"><i class="fas fa-book"></i> Materias que Imparte* (Separadas por coma)</label>
+                    <input type="text" id="materias" name="materias" required>
+                </div>
             </div>
-            <div class="input-group">
-                <input type="email" name="correo" placeholder="Correo Electrónico" required>
+
+            <div class="form-section">
+                <h2><i class="fas fa-lock"></i> Credenciales de Acceso</h2>
+                
+                <div class="input-group">
+                    <label for="email"><i class="fas fa-envelope"></i> Correo Institucional*</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-row">
+                    <div class="input-group password-group">
+                        <label for="password"><i class="fas fa-key"></i> Contraseña*</label>
+                        <input type="password" id="password" name="password" required>
+                        <button type="button" class="toggle-password"><i class="fas fa-eye"></i></button>
+                        <div class="password-strength">
+                            <div class="strength-bar"></div>
+                            <span class="strength-text">Seguridad: baja</span>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="confirm_password"><i class="fas fa-key"></i> Confirmar Contraseña*</label>
+                        <input type="password" id="confirm_password" name="confirm_password" required>
+                    </div>
+                </div>
             </div>
-            <div class="input-group">
-                <input type="tel" name="contacto" placeholder="Número de Contacto" required>
+
+            <div class="form-section">
+                <h2><i class="fas fa-file-upload"></i> Documentación</h2>
+                
+                <div class="input-group file-upload">
+                    <label for="cv"><i class="fas fa-file-pdf"></i> Curriculum Vitae (PDF)*</label>
+                    <input type="file" id="cv" name="cv" accept=".pdf" required>
+                    <div class="file-info">Subir archivo PDF (Máx. 5MB)</div>
+                </div>
+                
+                <div class="input-group file-upload">
+                    <label for="credencial"><i class="fas fa-id-badge"></i> Credencial Docente (Imagen)*</label>
+                    <input type="file" id="credencial" name="credencial" accept="image/*" required>
+                    <div class="file-info">Subir imagen (JPG/PNG, Máx. 2MB)</div>
+                </div>
             </div>
-            <div class="input-group">
-                <input type="number" name="cedula" placeholder="Número de Cédula" required>
+
+            <div class="terms-group">
+                <input type="checkbox" id="accept_terms" name="accept_terms" required>
+                <label for="accept_terms">Acepto los <a href="#">términos y condiciones</a> y la <a href="#">política de privacidad</a>*</label>
             </div>
-            <div class="input-group">
-                <input type="date" name="fecha_nacimiento" placeholder="Fecha de Nacimiento" required>
-            </div>
-            <div class="input-group">
-                <input type="text" name="direccion" placeholder="Dirección" required>
-            </div>
-            <div class="input-group">
-                <input type="password" name="password" placeholder="Contraseña" required>
-            </div>
-            <button type="submit">Registrar</button>
-            </fieldset>
+
+            <button type="submit" class="submit-btn">
+                <i class="fas fa-user-plus"></i> Registrar como Docente
+            </button>
         </form>
     </div>
-
+</div>
+{% endblock %}
+{% block extra_scripts %}

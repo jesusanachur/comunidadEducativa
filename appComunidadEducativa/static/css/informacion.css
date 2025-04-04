@@ -1,77 +1,145 @@
+/* Estilos generales */
 body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #007bff, #00c6ff); 
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #007bff, #00c6ff);
     margin: 0;
     padding: 0;
-    color: white; 
+    color: white;
+    line-height: 1.6;
 }
 
+/* Header */
 header {
-    background-color: rgba(0, 0, 0, 0.7); 
+    background-color: rgba(0, 0, 0, 0.7);
     color: white;
-    padding: 10px 0;
+    padding: 20px 0;
     text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 header h1 {
     margin: 0;
+    font-size: 2.5rem;
+    font-weight: bold;
 }
 
+/* Navegación */
 nav ul {
     list-style-type: none;
     padding: 0;
+    margin: 10px 0 0;
 }
 
 nav ul li {
     display: inline;
-    margin: 0 10px;
+    margin: 0 15px;
 }
 
 nav ul li a {
     color: white;
     text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
+    color: #00c6ff;
     text-decoration: underline;
 }
 
+/* Contenedor principal */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
 }
 
+/* Secciones */
 .informacion_1, .nuestro_equipo, .testimonios {
-    background-color: rgba(255, 255, 255, 0.9); 
+    background-color: rgba(255, 255, 255, 0.9);
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 10px;
     padding: 20px;
     margin: 20px 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     color: black;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.informacion_1:hover, .nuestro_equipo:hover, .testimonios:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para los círculos de información */
 .info_circle, .equipo_content, .testimonio_content {
     display: flex;
     align-items: center;
 }
 
 .circle_1 {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     background-color: #007bff;
     border-radius: 50%;
     margin-right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+/* Footer */
 footer {
-    background-color: rgba(0, 0, 0, 0.7); 
+    background-color: rgba(0, 0, 0, 0.7);
     color: white;
     text-align: center;
-    padding: 10px 0;
+    padding: 15px 0;
     position: fixed;
     width: 100%;
     bottom: 0;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* Animaciones */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.informacion_1, .nuestro_equipo, .testimonios {
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .info_circle, .equipo_content, .testimonio_content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .circle_1 {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+    .container {
+        padding: 10px;
+    }
+}

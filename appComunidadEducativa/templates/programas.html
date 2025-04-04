@@ -1,31 +1,215 @@
 {% extends "base.html" %}
-    <header>
-        <h1>Comunidad Educativa</h1>
-        <nav>
-            <ul>
-                <li><a href="#basico">Programa Básico</a></li>
-                <li><a href="#intermedio">Programa Intermedio</a></li>
-                <li><a href="#avanzado">Programa Avanzado</a></li>
-            </ul>
-        </nav>
-    </header>
-    <section class="geral container">
-        <h2>Programas de Aprendizaje 👩‍🎓</h2>
+{% load static %}
+
+{% block title %}Programas Académicos - Comunidad Educativa{% endblock %}
+
+{% block extrahead %}
+<link rel="stylesheet" href="{% static 'css/programas.css' %}">
+{% endblock %}
+
+{% block content %}
+<header class="program-header">
+    <div class="header-content">
+        <h1>Programas Académicos Integrales</h1>
+        <p>Descubre nuestros programas diseñados para cada nivel de aprendizaje</p>
+    </div>
+    <nav class="program-nav">
+        <ul>
+            <li><a href="#ciencias">Ciencias</a></li>
+            <li><a href="#humanidades">Humanidades</a></li>
+            <li><a href="#idiomas">Idiomas</a></li>
+            <li><a href="#tecnologia">Tecnología</a></li>
+            <li><a href="#artes">Artes</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="geral container">
+    <h2 class="section-title">Nuestros Programas Educativos 📚</h2>
+    
+    <!-- Sección de Ciencias -->
+    <div class="subject-category" id="ciencias">
+        <h3 class="category-title">🔬 Ciencias</h3>
         <div class="geral_content">
-            <div class="general text" id="basico">
-                <h3>Programa Básico</h3>
-                <p>Aprende los fundamentos del español, incluyendo vocabulario esencial y gramática básica.</p>
+            <div class="general text" id="matematicas">
+                <h4>Matemáticas</h4>
+                <p>Desarrolla tu pensamiento lógico-matemático con nuestro programa integral.</p>
+                <ul>
+                    <li>Aritmética básica</li>
+                    <li>Álgebra y geometría</li>
+                    <li>Cálculo diferencial</li>
+                    <li>Estadística aplicada</li>
+                </ul>
+                <button class="program-button">Explorar Matemáticas</button>
             </div>
-            <div class="general text" id="intermedio">
-                <h3>Programa Intermedio</h3>
-                <p>Desarrolla tus habilidades conversacionales y mejora tu comprensión auditiva con ejercicios prácticos.</p>
-            </div>
-            <div class="general text" id="avanzado">
-                <h3>Programa Avanzado</h3>
-                <p>Perfecciona tu español con lecciones avanzadas y actividades interactivas que desafían tus habilidades.</p>
+            
+            <div class="general text" id="ciencias-naturales">
+                <h4>Ciencias Naturales</h4>
+                <p>Descubre los misterios del universo y la naturaleza que nos rodea.</p>
+                <ul>
+                    <li>Biología celular</li>
+                    <li>Química básica</li>
+                    <li>Física aplicada</li>
+                    <li>Ecología y medio ambiente</li>
+                </ul>
+                <button class="program-button">Explorar Ciencias</button>
             </div>
         </div>
-    </section>
-    <footer>
-        <p>&copy; 2025 Español Fácil. Todos los derechos reservados.</p>
-    </footer>
+    </div>
+    
+    <!-- Sección de Humanidades -->
+    <div class="subject-category" id="humanidades">
+        <h3 class="category-title">📖 Humanidades</h3>
+        <div class="geral_content">
+            <div class="general text" id="sociales">
+                <h4>Ciencias Sociales</h4>
+                <p>Comprende la sociedad y su desarrollo histórico y cultural.</p>
+                <ul>
+                    <li>Historia universal</li>
+                    <li>Geografía humana</li>
+                    <li>Economía básica</li>
+                    <li>Filosofía y ética</li>
+                </ul>
+                <button class="program-button">Explorar Sociales</button>
+            </div>
+            
+            <div class="general text" id="lenguaje">
+                <h4>Lengua y Literatura</h4>
+                <p>Domina tu lengua materna y descubre el mundo de la literatura.</p>
+                <ul>
+                    <li>Gramática avanzada</li>
+                    <li>Análisis literario</li>
+                    <li>Redacción creativa</li>
+                    <li>Ortografía y sintaxis</li>
+                </ul>
+                <button class="program-button">Explorar Lenguaje</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Sección de Idiomas -->
+    <div class="subject-category" id="idiomas">
+        <h3 class="category-title">🌍 Idiomas</h3>
+        <div class="geral_content">
+            <div class="general text" id="espanol">
+                <h4>Español como Lengua Extranjera</h4>
+                <p>Aprende español desde cero o perfecciona tus habilidades.</p>
+                <ul>
+                    <li>Niveles A1 a C2</li>
+                    <li>Español para negocios</li>
+                    <li>Cultura hispanohablante</li>
+                    <li>Preparación DELE</li>
+                </ul>
+                <button class="program-button">Explorar Español</button>
+            </div>
+            
+            <div class="general text" id="ingles">
+                <h4>Inglés</h4>
+                <p>Programa completo para dominar el idioma global.</p>
+                <ul>
+                    <li>Inglés básico a avanzado</li>
+                    <li>Preparación TOEFL/IELTS</li>
+                    <li>Inglés técnico</li>
+                    <li>Conversación fluida</li>
+                </ul>
+                <button class="program-button">Explorar Inglés</button>
+            </div>
+            
+            <div class="general text" id="frances">
+                <h4>Francés</h4>
+                <p>Descubre la lengua del amor y la diplomacia.</p>
+                <ul>
+                    <li>Francés básico</li>
+                    <li>Cultura francófona</li>
+                    <li>Preparación DELF</li>
+                    <li>Conversación práctica</li>
+                </ul>
+                <button class="program-button">Explorar Francés</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Sección de Tecnología -->
+    <div class="subject-category" id="tecnologia">
+        <h3 class="category-title">💻 Tecnología</h3>
+        <div class="geral_content">
+            <div class="general text" id="programacion">
+                <h4>Programación</h4>
+                <p>Aprende a crear tecnología desde cero.</p>
+                <ul>
+                    <li>Introducción a algoritmos</li>
+                    <li>Python para principiantes</li>
+                    <li>Desarrollo web</li>
+                    <li>Bases de datos</li>
+                </ul>
+                <button class="program-button">Explorar Programación</button>
+            </div>
+            
+            <div class="general text" id="robotica">
+                <h4>Robótica Educativa</h4>
+                <p>Introducción al mundo de la automatización y robótica.</p>
+                <ul>
+                    <li>Electrónica básica</li>
+                    <li>Programación de robots</li>
+                    <li>Arduino</li>
+                    <li>Proyectos prácticos</li>
+                </ul>
+                <button class="program-button">Explorar Robótica</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Sección de Artes -->
+    <div class="subject-category" id="artes">
+        <h3 class="category-title">🎨 Artes</h3>
+        <div class="geral_content">
+            <div class="general text" id="musica">
+                <h4>Música</h4>
+                <p>Desarrolla tu talento musical con nuestros programas.</p>
+                <ul>
+                    <li>Teoría musical</li>
+                    <li>Instrumentos básicos</li>
+                    <li>Canto</li>
+                    <li>Producción musical</li>
+                </ul>
+                <button class="program-button">Explorar Música</button>
+            </div>
+            
+            <div class="general text" id="artes-plasticas">
+                <h4>Artes Plásticas</h4>
+                <p>Expresa tu creatividad a través de diferentes técnicas.</p>
+                <ul>
+                    <li>Dibujo básico</li>
+                    <li>Pintura</li>
+                    <li>Escultura</li>
+                    <li>Arte digital</li>
+                </ul>
+                <button class="program-button">Explorar Artes</button>
+            </div>
+            
+            <div class="general text" id="teatro">
+                <h4>Teatro y Expresión</h4>
+                <p>Desarrolla tus habilidades de expresión y actuación.</p>
+                <ul>
+                    <li>Improvisación</li>
+                    <li>Expresión corporal</li>
+                    <li>Dramaturgia</li>
+                    <li>Producción teatral</li>
+                </ul>
+                <button class="program-button">Explorar Teatro</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="program-footer">
+    <div class="footer-content">
+        <p>&copy; 2025 Comunidad Educativa. Todos los derechos reservados.</p>
+        <div class="footer-links">
+            <a href="#">Políticas de privacidad</a>
+            <a href="#">Términos de servicio</a>
+            <a href="#">Contáctanos</a>
+        </div>
+    </div>
+</footer>
+{% endblock %}

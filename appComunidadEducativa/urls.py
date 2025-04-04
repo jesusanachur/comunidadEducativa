@@ -5,13 +5,13 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('', views.home, name="home"),
-    path('informacion', views.informacion, name="informacion"),
-    path('inicio Sesion', views.inicio, name="inicio Sesion"),
+    path('sobrenosotros', views.sobrenosotros, name="sobrenosotros"),
+    path('inicioSesion', views.inicioSesion, name="inicioSesion"),
     path('planes', views.planes, name="planes"),
     path('programas', views.programas, name="programas"),
     path('registro', views.registro, name="registro"),
     path('profesores', views.profesores, name="profesores"),
-    path('registro', views.registro, name="pro"),
+    path('recuperar-contrasena', views.recuperar_contrasena, name="recuperar_contrasena"),
 ]
 
 urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

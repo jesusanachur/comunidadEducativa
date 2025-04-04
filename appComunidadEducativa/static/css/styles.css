@@ -1,0 +1,322 @@
+:root {
+    /* Paleta de colores moderna para educación */
+    --primary-blue: #3a7bd5;       /* Azul principal */
+    --secondary-blue: #00d2ff;     /* Azul claro */
+    --accent-orange: #ff7e5f;      /* Naranja coral */
+    --accent-green: #38ef7d;       /* Verde brillante */
+    --dark-text: #2c3e50;          /* Texto oscuro */
+    --light-text: #f5f7fa;         /* Texto claro */
+    --light-bg: #f8f9fa;           /* Fondo claro */
+    --white: #ffffff;              /* Blanco puro */
+    --gray-border: #e0e0e0;        /* Bordes grises */
+  }
+  
+  /* Estructura base */
+  body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--light-bg);
+    color: var(--dark-text);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+  }
+  
+  /* Header con gradiente moderno */
+  .header {
+    background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+    color: var(--light-text);
+    padding: 15px 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header .menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+  }
+  
+  .header .logo {
+    height: 50px;
+    margin-right: 20px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+  }
+  
+  /* Menú de navegación */
+  .navbar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .navbar ul li {
+    margin: 0 10px;
+  }
+  
+  .navbar ul li a {
+    color: var(--light-text);
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    display: inline-block;
+  }
+  
+  .navbar ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+  }
+  
+  /* Contenido del encabezado */
+  .header_content {
+    text-align: center;
+    margin: 30px 0;
+    padding: 0 20px;
+  }
+  
+  .header_content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Contenedor principal */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px;
+  }
+  
+  /* Barra de búsqueda */
+  .search-container {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+    padding: 0 20px;
+  }
+  
+  #searchInput {
+    padding: 12px 20px;
+    border: 2px solid var(--gray-border);
+    border-radius: 30px 0 0 30px;
+    width: 400px;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s;
+  }
+  
+  #searchInput:focus {
+    border-color: var(--primary-blue);
+  }
+  
+  .search-container button {
+    padding: 12px 25px;
+    background: linear-gradient(to right, var(--accent-orange), #feb47b);
+    color: var(--white);
+    border: none;
+    border-radius: 0 30px 30px 0;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+  }
+  
+  .search-container button:hover {
+    background: linear-gradient(to right, #ff6b4a, #ff8e7a);
+    transform: translateY(-1px);
+  }
+  
+  /* Resultados de búsqueda */
+  #resultados {
+    margin: 30px auto;
+    width: 100%;
+    max-width: 800px;
+    background-color: var(--white);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    display: none;
+  }
+  
+  /* Botones generales */
+  button {
+    padding: 12px 25px;
+    background: linear-gradient(to right, var(--accent-green), #38ef7d);
+    color: var(--white);
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  button:hover {
+    background: linear-gradient(to right, #2ad673, #38ef7d);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Footer con gradiente */
+  .footer {
+    background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+    color: var(--light-text);
+    padding: 40px 0;
+    width: 100%;
+    margin-top: auto;
+    position: relative;
+  }
+  
+  .footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px;
+  }
+  
+  .footer-section {
+    flex: 1;
+    min-width: 250px;
+    margin: 15px;
+  }
+  
+  .footer-section h3 {
+    margin-bottom: 20px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 10px;
+    font-size: 1.2rem;
+  }
+  
+  .footer-section ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .footer-section ul li {
+    margin-bottom: 12px;
+  }
+  
+  .footer-section a {
+    color: var(--light-text);
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  
+  .footer-section a:hover {
+    color: var(--accent-orange);
+    padding-left: 5px;
+  }
+  
+  .social-icons {
+    margin-top: 20px;
+  }
+  
+  .social-icons a {
+    display: inline-block;
+    margin-right: 15px;
+    font-size: 24px;
+    color: var(--light-text);
+    transition: all 0.3s;
+  }
+  
+  .social-icons a:hover {
+    color: var(--accent-orange);
+    transform: translateY(-3px);
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: 30px;
+    font-size: 0.9rem;
+  }
+  
+  /* Secciones de contenido */
+  .info-section {
+    background-color: var(--white);
+    border-radius: 10px;
+    padding: 30px;
+    margin: 30px 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    border-left: 5px solid var(--accent-orange);
+    transition: all 0.3s;
+  }
+  
+  .info-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Diseño responsivo */
+  @media (max-width: 768px) {
+    .navbar ul {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .navbar ul li {
+      margin: 8px 0;
+    }
+    
+    .header .menu {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .header .logo {
+      margin: 0 auto 15px;
+    display: block;
+    height: 45px;
+    }
+    
+    .footer-content {
+      flex-direction: column;
+    }
+    
+    .search-container {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    #searchInput {
+      width: 100%;
+      margin-bottom: 15px;
+      border-radius: 30px;
+    }
+    
+    .search-container button {
+      width: 100%;
+      border-radius: 30px;
+    }
+    
+    .header_content h1 {
+      font-size: 2rem;
+    }
+  }
+  
+  /* Clases adicionales para elementos especiales */
+  .cta-button {
+    background: linear-gradient(to right, var(--accent-orange), #feb47b);
+    padding: 15px 30px;
+    font-size: 1.1rem;
+  }
+  
+  .cta-button:hover {
+    background: linear-gradient(to right, #ff6b4a, #ff8e7a);
+  }
+  
+  .highlight-box {
+    background: linear-gradient(135deg, #f5f7fa, #e4e8eb);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+    border-left: 5px solid var(--accent-green);
+  }

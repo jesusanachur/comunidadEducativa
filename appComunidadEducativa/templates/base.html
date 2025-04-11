@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
     <title>{% block title %}Comunidad Educativa{% endblock %}</title>
+
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
     <!-- Font Awesome para iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     {% block extrahead %}{% endblock %}
@@ -22,7 +26,11 @@
                     <li><a href="{% url 'home' %}"><i class="fas fa-home"></i> Inicio</a></li>
                     <li><a href="{% url 'programas' %}"><i class="fas fa-book"></i> Programas</a></li>
                     <li><a href="{% url 'planes' %}"><i class="fas fa-list"></i> Planes</a></li>
+
                     
+
+
+                   
 
                     <li><a href="{% url 'registro' %}"><i class="fas fa-user-plus"></i> Registrarte</a></li>
                     <li><a href="{% url 'inicioSesion' %}"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</a></li>
@@ -30,7 +38,7 @@
             </nav>
         </div>
         <div class="header_content container">
-            <p>Bienvenido a Comunidad Educativa, tu plataforma ideal para aprender  de manera efectiva y divertida. Aquí encontrarás recursos interactivos, lecciones personalizadas y mucho más.</p>
+            <p>Bienvenido a Comunidad Educativa, tu plataforma ideal para aprender español de manera efectiva y divertida. Aquí encontrarás recursos interactivos, lecciones personalizadas y mucho más.</p>
         </div>
         <div class="search-container">
             <input type="text" id="searchInput" placeholder="Buscar cursos, lecciones, profesores...">
@@ -39,18 +47,26 @@
         <div id="resultados"></div>
     </header>
 
+
     <!-- Añadir main para estructura correcta -->
     <main id="content">
         <!-- Bloque de contenido dinámico -->
         {% block content %}{% endblock %}
     </main>
 
+    
+
+
     <!-- Footer común para todas las páginas -->
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-section">
                 <h3>Comunidad Educativa</h3>
+
                 <p>Tu plataforma para aprender  de manera efectiva y divertida.</p>
+
+                <p>Tu plataforma para aprender español de manera efectiva y divertida.</p>
+
             </div>
             <div class="footer-section">
                 <h3>Enlaces rápidos</h3>
@@ -59,17 +75,29 @@
                     <li><a href="{% url 'programas' %}">Programas</a></li>
                     <li><a href="{% url 'planes' %}">Planes</a></li>
                     
+
+                    <li><a href="{% url 'sobrenosotros' %}">Quiénes Somos</a></li>
+
                 </ul>
             </div>
             <div class="footer-section">
                 <h3>Contacto</h3>
                 <p><i class="fas fa-envelope"></i> anachurycastro2001@gmail.com</p>
+
                 <p><i class="fas fa-phone"></i> 57+3112445775</p>
                 <div class="social-icons">
                     <a href="#"><i class="https://www.facebook.com/"></i></a>
                 
                     <a href="#"><i class="https://www.instagram.com/"></i></a>
                     <a href="#"><i class="https://www.youtube.com/"></i></a>
+
+                <p><i class="fas fa-phone"></i> 57 3112445775</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+
                 </div>
             </div>
         </div>

@@ -1,7 +1,16 @@
 {% extends "base.html" %}
 {% load static %}
 
+
 {% block title %}Sobre Nosotros - Comunidad Educativa{% endblock %}
+
+
+{% block extrahead %}
+{% block title %}Sobre Nosotros - Comunidad Educativa{% endblock %}
+
+<link rel="stylesheet" href="{% static 'css/quinessomos.css' %}">
+{% endblock %}
+
 
 {% block content %}
 <div class="container mt-5">

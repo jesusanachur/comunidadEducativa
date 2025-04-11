@@ -14,6 +14,7 @@
 .registration-container {
     display: flex;
     justify-content: center;
+
     align-items: center;
     min-height: 100vh;
     background-color: var(--light-bg);
@@ -23,6 +24,11 @@
     background-position: center;
     background-blend-mode: overlay;
     background-color: rgba(248, 249, 250, 0.9);
+
+    align-items: center; /* Centrar verticalmente */
+    min-height: 100vh; /* Usar toda la altura de la pantalla */
+    color: #333; /* Color de texto oscuro para mejor contraste */
+
 }
 
 .registration-card {
@@ -41,9 +47,17 @@
     color: var(--white);
 }
 
+
 .registration-header h2 {
     margin: 0.5rem 0 0.2rem;
     font-size: 1.8rem;
+}   
+
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+
 }
 
 .registration-header p {
@@ -63,6 +77,7 @@
 }
 
 .input-group {
+
     margin-bottom: 1rem;
 }
 
@@ -86,6 +101,34 @@
     border-radius: 6px;
     font-size: 1rem;
     transition: all 0.3s;
+
+    margin-bottom: 15px;
+    text-align: left; /* Alinear texto a la izquierda */
+}
+
+.input-group input,
+.genero-container input,
+.genero-container select {
+    width: 100%; /* Ancho completo */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Asegura que el padding y el borde se incluyan en el ancho total */
+    margin-bottom: 10px;
+    font-size: 14px; /* Tamaño de fuente */
+}
+
+.genero-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.genero-container label {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+
 }
 
 .input-group input:focus,
@@ -234,4 +277,12 @@
     .half-width {
         grid-column: span 1;
     }
+
+    .btn-register {
+        width: 100%;
+    }
+
+button:hover {
+    background-color: #0056b3; /* Color azul más oscuro */
+
 }

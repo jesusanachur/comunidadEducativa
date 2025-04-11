@@ -104,9 +104,20 @@
     border-top: 3px solid var(--primary-color);
 }
 
+
 .general.text:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+footer {
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 10%;
+    bottom: 0;
+
 }
 
 .general.text h4 {

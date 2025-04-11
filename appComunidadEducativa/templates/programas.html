@@ -1,7 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 
+
 {% block title %}Programas Académicos - Comunidad Educativa{% endblock %}
+
+
 
 {% block extrahead %}
 <link rel="stylesheet" href="{% static 'css/programas.css' %}">
@@ -9,6 +12,7 @@
 
 {% block content %}
 <header class="program-header">
+
     <div class="header-content">
         <h1>Programas Académicos Integrales</h1>
         <p>Descubre nuestros programas diseñados para cada nivel de aprendizaje</p>
@@ -211,5 +215,56 @@
             <a href="#">Contáctanos</a>
         </div>
     </div>
+
+    <h1>Comunidad Educativa</h1>
+    <nav>
+        <ul>
+            <li><a href="#basico">Programa Básico</a></li>
+            <li><a href="#intermedio">Programa Intermedio</a></li>
+            <li><a href="#avanzado">Programa Avanzado</a></li>
+        </ul>
+    </nav>
+</header>
+<section class="geral container">
+    <h2>Programas de Aprendizaje 👩‍🎓</h2>
+    <div class="geral_content">
+        <div class="general text" id="basico">
+            <h3>Programa Básico</h3>
+            <p>Aprende los fundamentos del español, incluyendo vocabulario esencial y gramática básica.</p>
+            <ul>
+                <li>Saludos y presentaciones</li>
+                <li>Vocabulario básico</li>
+                <li>Construcción de frases simples</li>
+                <li>Pronunciación básica</li>
+            </ul>
+            <button class="program-button">Ver detalles</button>
+        </div>
+        <div class="general text" id="intermedio">
+            <h3>Programa Intermedio</h3>
+            <p>Desarrolla tus habilidades conversacionales y mejora tu comprensión auditiva con ejercicios prácticos.</p>
+            <ul>
+                <li>Conversaciones cotidianas</li>
+                <li>Gramática intermedia</li>
+                <li>Comprensión lectora</li>
+                <li>Redacción de textos</li>
+            </ul>
+            <button class="program-button">Ver detalles</button>
+        </div>
+        <div class="general text" id="avanzado">
+            <h3>Programa Avanzado</h3>
+            <p>Perfecciona tu español con lecciones avanzadas y actividades interactivas que desafían tus habilidades.</p>
+            <ul>
+                <li>Expresiones idiomáticas</li>
+                <li>Literatura en español</li>
+                <li>Fluidez conversacional</li>
+                <li>Cultura hispana</li>
+            </ul>
+            <button class="program-button">Ver detalles</button>
+        </div>
+    </div>
+</section>
+<footer class="program-footer">
+    <p>&copy; 2025 Comunidad Educativa. Todos los derechos reservados.</p>
+
 </footer>
 {% endblock %}
